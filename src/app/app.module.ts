@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { CardModule } from '@apinity/ui-components/card';
+import { ButtonModule } from '@apinity/ui-components/button';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -13,6 +14,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
   imports: [
     BrowserModule,
     CardModule,
+    ButtonModule,
     RouterModule.forRoot(appRoutes),
     StoreModule.forRoot(
       {},

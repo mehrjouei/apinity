@@ -64,7 +64,10 @@
         "outputDir": "dist/storybook/ui-components",
         "configDir": "ui-components/.storybook",
         "browserTarget": "ui-components:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "styles": [
+          "ui-components/src/styles"
+        ]
       },
       "configurations": {
         "ci": {

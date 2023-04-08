@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '../ui-components/src/styles';
+
+body{
+  font-size: 14px;
+}
 
 @media (prefers-color-scheme: dark) {
   body {
