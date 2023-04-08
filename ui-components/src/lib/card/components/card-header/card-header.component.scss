@@ -1,0 +1,12 @@
+.header-wrapper {
+    padding: 0.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+@media (prefers-color-scheme: dark) {
+    .header-wrapper{
+        border-color: #6e6e6e;
+    }
+  }
