@@ -1,1 +1,64 @@
-<p>view works!</p>
+<ng-container *ngIf="elixir$ | async as elixir else loading">
+    <header class="flex justify-center items-center space-x-3 md:space-x-6 p-5 md:p-10 bg-slate-700">
+        <img src="/assets/images/elixir.png" class="h-16 md:h-28" alt="">
+        <h1 class="text-xl md:text-3xl">{{elixir.name}}</h1>
+    </header>
+    <div class="flex p-4 justify-center">
+        <section class="p-5 border rounded-sm">
+            <div class="details">
+                <div>
+                    <div>Effects:</div>
+                    <div>{{elixir.effect || '-'}}</div>
+                </div>
+                <div>
+                    <div>Side Effects:</div>
+                    <div>{{elixir.sideEffects || '-'}}</div>
+                </div>
+                <div>
+                    <div>Ingredients:</div>
+                    <div>
+                        <span *ngFor="let ingredient of elixir.ingredients;let index=index">
+                            {{index !==0 ?', ':''}}{{ingredient.name}}
+                        </span>
+                        <span *ngIf="!elixir.ingredients.length">-</span>
+                    </div>
+                </div>
+                <div>
+                    <div>Inventors:</div>
+                    <div>
+                        <span *ngFor="let inventor of elixir.inventors;let index=index">
+                            {{index !==0 ?', ':''}}{{inventor.firstName + ' '+inventor.lastName}}
+                        </span>
+                        <span *ngIf="!elixir.inventors.length">-</span>
+                    </div>
+                </div>
+                <div>
+                    <div>Characteristics:</div>
+                    <div>{{elixir.characteristics || '-'}}</div>
+
+                </div>
+                <div>
+                    <div>Time:</div>
+                    <div>{{elixir.time || '-'}}</div>
+
+                </div>
+                <div>
+                    <div>Difficulty:</div>
+                    <div>{{elixir.difficulty || '-'}}</div>
+
+                </div>
+                <div>
+                    <div>Manufacturer:</div>
+                    <div>{{elixir.manufacturer || '-'}}</div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</ng-container>
+
+<ng-template #loading>
+    <div class="flex h-full justify-center items-center text-4xl">
+        Loading ....
+    </div>
+</ng-template>

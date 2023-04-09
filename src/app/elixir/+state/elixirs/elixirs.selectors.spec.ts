@@ -1,54 +1,47 @@
-import { ElixirsEntity } from 'src/app/interfaces/elixir.models';
+import { ElixirsEntity } from '../../../interfaces/elixir.models';
 import {
-  elixirsAdapter,
-  ElixirsPartialState,
+  ElixirsState,
   initialElixirsState,
 } from './elixirs.reducer';
 import * as ElixirsSelectors from './elixirs.selectors';
 
 describe('Elixirs Selectors', () => {
   const ERROR_MSG = 'No Error Available';
-  const getElixirsId = (it: ElixirsEntity) => it.id;
   const createElixirsEntity = (id: string, name = '') =>
-    ({
-      id,
-      name: name || `name-${id}`,
-    } as ElixirsEntity);
+  ({
+    id,
+    name: name || `name-${id}`,
+  } as ElixirsEntity);
 
-  let state: ElixirsPartialState;
+  let state: { elixirs: ElixirsState };
 
   beforeEach(() => {
     state = {
-      elixirs: elixirsAdapter.setAll(
-        [
-          createElixirsEntity('PRODUCT-AAA'),
-          createElixirsEntity('PRODUCT-BBB'),
-          createElixirsEntity('PRODUCT-CCC'),
-        ],
+      elixirs: 
         {
           ...initialElixirsState,
-          selectedId: 'PRODUCT-BBB',
           error: ERROR_MSG,
           loaded: true,
+          selected: createElixirsEntity('ELIXIR-AAA'),
+          elixirs: [
+            createElixirsEntity('ELIXIR-AAA'),
+            createElixirsEntity('ELIXIR-BBB'),
+            createElixirsEntity('ELIXIR-CCC'),
+          ]
         }
-      ),
     };
   });
 
   describe('Elixirs Selectors', () => {
     it('selectAllElixirs() should return the list of Elixirs', () => {
-      const results = ElixirsSelectors.selectAllElixirs(state);
-      const selId = getElixirsId(results[1]);
-
+      const results = ElixirsSelectors.selectAllElixirs(state) as ElixirsEntity[];
       expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
     });
 
-    it('selectEntity() should return the selected Entity', () => {
-      const result = ElixirsSelectors.selectEntity(state) as ElixirsEntity;
-      const selId = getElixirsId(result);
+    it('selectSelectedElixir() should return the selected Entity', () => {
+      const result = ElixirsSelectors.selectSelectedElixir(state) as ElixirsEntity;
 
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(result.id).toBe('ELIXIR-AAA');
     });
 
     it('selectElixirsLoaded() should return the current "loaded" status', () => {

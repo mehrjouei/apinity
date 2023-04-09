@@ -15,7 +15,7 @@ export class ElixirsFacade {
    */
   loaded$ = this.store.pipe(select(ElixirsSelectors.selectElixirsLoaded));
   allElixirs$ = this.store.pipe(select(ElixirsSelectors.selectAllElixirs));
-  selectedElixirs$ = this.store.pipe(select(ElixirsSelectors.selectEntity));
+  selectedElixir$ = this.store.pipe(select(ElixirsSelectors.selectSelectedElixir));
 
   /**
    * Use the initialization action to perform one
@@ -23,5 +23,9 @@ export class ElixirsFacade {
    */
   init(name?:string) {
     this.store.dispatch(ElixirsActions.initElixirs({name}));
+  }
+
+  loadById(id:string) {
+    this.store.dispatch(ElixirsActions.loadElixir({id}));
   }
 }

@@ -16,4 +16,8 @@ export class ElixirService {
     }
     return this.http.get<ElixirsEntity[]>('Elixirs', { params });
   }
+
+  getElixirById(id: string) {
+    return this.http.get<ElixirsEntity>(`Elixirs/${id}`);
+  }
 }

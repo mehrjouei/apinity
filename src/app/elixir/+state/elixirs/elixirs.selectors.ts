@@ -2,14 +2,11 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import {
   ELIXIRS_FEATURE_KEY,
   ElixirsState,
-  elixirsAdapter,
 } from './elixirs.reducer';
 
-// Lookup the 'Elixirs' feature state managed by NgRx
 export const selectElixirsState =
   createFeatureSelector<ElixirsState>(ELIXIRS_FEATURE_KEY);
 
-const { selectAll, selectEntities } = elixirsAdapter.getSelectors();
 
 export const selectElixirsLoaded = createSelector(
   selectElixirsState,
@@ -23,21 +20,12 @@ export const selectElixirsError = createSelector(
 
 export const selectAllElixirs = createSelector(
   selectElixirsState,
-  (state: ElixirsState) => selectAll(state)
+  (state: ElixirsState) => state.elixirs
 );
 
-export const selectElixirsEntities = createSelector(
+export const selectSelectedElixir = createSelector(
   selectElixirsState,
-  (state: ElixirsState) => selectEntities(state)
+  (state: ElixirsState) => state.selected
 );
 
-export const selectSelectedId = createSelector(
-  selectElixirsState,
-  (state: ElixirsState) => state.selectedId
-);
 
-export const selectEntity = createSelector(
-  selectElixirsEntities,
-  selectSelectedId,
-  (entities, selectedId) => (selectedId ? entities[selectedId] : undefined)
-);

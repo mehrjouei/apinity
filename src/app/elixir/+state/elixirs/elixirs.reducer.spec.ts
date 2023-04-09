@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { ElixirsEntity } from 'src/app/interfaces/elixir.models';
+import { ElixirsEntity } from '../../../interfaces/elixir.models';
 
 import * as ElixirsActions from './elixirs.actions';
 import {
@@ -12,7 +12,7 @@ describe('Elixirs Reducer', () => {
   const createElixirsEntity = (id: string, name = ''): ElixirsEntity => ({
     id,
     name: name || `name-${id}`,
-  });
+  } as ElixirsEntity);
 
   describe('valid Elixirs actions', () => {
     it('loadElixirsSuccess should return the list of known Elixirs', () => {
@@ -25,7 +25,7 @@ describe('Elixirs Reducer', () => {
       const result: ElixirsState = elixirsReducer(initialElixirsState, action);
 
       expect(result.loaded).toBe(true);
-      expect(result.ids.length).toBe(2);
+      expect(result.elixirs?.length).toBe(2);
     });
   });
 

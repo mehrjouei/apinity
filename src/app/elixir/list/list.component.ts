@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { tap } from 'rxjs';
 import { ElixirsFacade } from '../+state/elixirs/elixirs.facade';
 
@@ -6,6 +6,7 @@ import { ElixirsFacade } from '../+state/elixirs/elixirs.facade';
   selector: 'apinity-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class ListComponent implements OnInit {
   elixirs$ = this.elixirFacade.allElixirs$;

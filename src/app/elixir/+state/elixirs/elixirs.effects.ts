@@ -23,5 +23,19 @@ export class ElixirsEffects {
     )
   );
 
+  loadById$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ElixirsActions.loadElixir),
+      switchMap((props) =>
+        this.elixirService.getElixirById(props?.id).pipe(
+          map((elixir) => ElixirsActions.loadElixirSuccess({ elixir })),
+          catchError((error) => {
+            return of(ElixirsActions.loadElixirFailure({ error }));
+          })
+        )
+      )
+    )
+  );
+
   constructor(private elixirService: ElixirService) { }
 }

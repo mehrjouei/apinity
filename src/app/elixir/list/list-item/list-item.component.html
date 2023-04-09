@@ -4,17 +4,17 @@
         <div class="flex flex-col items-center">
             <img src="/assets/images/elixir.png" [alt]="name" class="w-20 mb-2">
             <div class="details flex flex-col items-center text-center">
-                    <div>Effects:</div>
-                    <div>{{effect || '-'}}</div>
-                    <div>Side Effects:</div>
-                    <div>{{sideEffects || '-'}}</div>
-                    <div>Ingredients:</div>
-                    <div>
-                        <span *ngFor="let ingredient of ingredients;let index=index">
-                            {{index !==0 ?', ':''}}{{ingredient.name}}
-                        </span>
-                        <span *ngIf="!ingredients.length">-</span>
-                    </div>
+                <div>Effects:</div>
+                <div>{{effect || '-'}}</div>
+                <div>Side Effects:</div>
+                <div>{{sideEffects || '-'}}</div>
+                <div>Ingredients:</div>
+                <div>
+                    <span *ngFor="let ingredient of ingredients;let index=index">
+                        {{index !==0 ?', ':''}}{{ingredient.name}}
+                    </span>
+                    <span *ngIf="!ingredients?.length">-</span>
+                </div>
             </div>
         </div>
     </apinity-card-content>

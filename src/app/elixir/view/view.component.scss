@@ -1,0 +1,25 @@
+section {
+    width: 100%;
+
+    @media (min-width: 1280px) {
+        width: 1246px;
+    }
+
+    .details {
+        display: table;
+
+        >div {
+            display: table-row;
+
+            >div {
+                display: table-cell;
+                padding:0.5rem;
+                font-size: 0.9rem;
+                &:first-child{
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                }
+            }
+        }
+    }
+}
