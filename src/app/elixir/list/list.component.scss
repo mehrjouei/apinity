@@ -1,0 +1,24 @@
+header {
+    background-image: url('/assets/images/elixir_bg.jpg');
+    background-color: #0F0A2B;
+}
+
+.masonry {
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 1.5em;
+    font-size: .85em;
+    @media (min-width: 1280px) {
+        width:1280px;
+    }
+
+    @media (max-width: 900px) {
+       columns: 2;
+    }
+
+    @media (max-width: 620px) {
+       columns: 1;
+    }
+
+}
+

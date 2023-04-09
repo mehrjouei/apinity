@@ -1,8 +1,11 @@
 .header-wrapper {
-    padding: 0.5rem;
+    padding: 0.8rem;
     font-weight: 600;
     font-size: 1.2rem;
     border-bottom: 1px solid #eaeaea;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {

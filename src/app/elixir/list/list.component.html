@@ -1,0 +1,11 @@
+<header class="h-72 bg-contain bg-no-repeat bg-center text-center block pt-44">
+    <apinity-elixir-search-box [loading]="loading && (loaded$|async)===false" class="flex justify-center"
+        (valueChange)="search($event)"></apinity-elixir-search-box>
+</header>
+<div class="flex justify-center p-4">
+    <section class="masonry text-center w-full md:columns-3 xl:columns-4">
+        <apinity-list-item class="w-72 m-2 inline-block" *ngFor="let item of elixirs$|async" [id]="item.id"
+            [name]="item.name" [ingredients]="item.ingredients" [sideEffects]="item.sideEffects"
+            [effect]="item.effect"></apinity-list-item>
+    </section>
+</div>

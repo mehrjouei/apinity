@@ -1,0 +1,11 @@
+<form [formGroup]="searchForm" (ngSubmit)="submit()" class="flex items-center justify-center w-full m-5 sm:w-96 rounded-sm bg-white pr-2 dark:bg-slate-600 overflow-hidden">
+    <input type="text" 
+        required formControlName="name"
+        placeholder="Search for any Elixir by name"
+        class="h-14 flex-1 p-2 outline-none dark:bg-slate-600"
+    >
+    <mat-icon (click)="remove()" *ngIf="submitted" class="mr-2 cursor-pointer">close</mat-icon>
+    <button apinity-button [loading]="loading" color="primary" type="submit" [disabled]="searchForm.invalid">
+        Search
+    </button>
+</form>

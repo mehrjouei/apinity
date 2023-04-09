@@ -16,8 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@apinity/ui-components": ["ui-components/src/"],
-      "@apinity/ui-components/styles": ["ui-components/src/styles"],
-      "@apinity/ui-components/*": ["ui-components/src/lib/*"]
+      "@apinity/ui-components/*": ["ui-components/src/lib/*"],
+      "@apinity/ui-components/styles": ["ui-components/src/styles"]
     }
   },
   "exclude": ["node_modules", "tmp"]
