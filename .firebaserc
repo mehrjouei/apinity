@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "elixirs-bb05e": {
+      "hosting": {
+        "apinity": [
+          "elixirs-bb05e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "elixirs-bb05e"
+  }
+}

@@ -108,6 +108,16 @@
       "options": {
         "buildTarget": "apinity:build"
       }
+    },
+    "deploy": {
+      "executor": "@angular/fire:deploy",
+      "options": {
+        "prerender": false,
+        "ssr": false,
+        "browserTarget": "apinity:build:production",
+        "firebaseProject": "elixirs-bb05e",
+        "firebaseHostingSite": "elixirs-bb05e"
+      }
     }
   }
 }
